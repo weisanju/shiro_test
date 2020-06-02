@@ -2,6 +2,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.config.IniSecurityManagerFactory;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.realm.jdbc.JdbcRealm;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Factory;
 import org.junit.Assert;
@@ -19,7 +20,6 @@ public class ShiroTest {
         UsernamePasswordToken token = new UsernamePasswordToken("zhangsan", "lisi");
         subject.login(token);
         System.out.println(subject.isAuthenticated());
-
         System.out.println(subject.hasRole("admin"));
         System.out.println("helloworld");
         subject.checkPermission("mainpage");
