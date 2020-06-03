@@ -17,10 +17,10 @@ public class ShiroTest {
         SecurityManager manager = factory.getInstance();
         SecurityUtils.setSecurityManager(manager);
         Subject subject = SecurityUtils.getSubject();
-        UsernamePasswordToken token = new UsernamePasswordToken("zhangsan", "lisi");
+        UsernamePasswordToken token = new UsernamePasswordToken("zhangsan", "zhangsan");
         subject.login(token);
         System.out.println(subject.isAuthenticated());
         System.out.println(subject.hasRole("admin"));
-        subject.checkPermission("mainpage");
+        subject.checkPermission("mainpage:首页,管理员");
     }
 }
