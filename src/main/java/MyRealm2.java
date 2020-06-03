@@ -16,14 +16,14 @@ public class MyRealm2 implements Realm {
         System.out.println("正在验证2");
         String username = (String)token.getPrincipal();  //得到用户名
         String password = new String((char[])token.getCredentials()); //得到密码
-        if(!"zhang".equals(username)) {
+        if(!"zhangsan".equals(username)) {
             throw new UnknownAccountException("用户名错误"); //如果用户名错误
         }
-        if(!"1234".equals(password)) {
+        if(!"lisi".equals(password)) {
             System.out.println("密码错误");
             throw new IncorrectCredentialsException(); //如果密码错误
         }
         //如果身份认证验证成功，返回一个AuthenticationInfo实现；
-        return new SimpleAuthenticationInfo(username, password, getName());
+        return new SimpleAuthenticationInfo(username+"@", password, getName());
     }
 }
