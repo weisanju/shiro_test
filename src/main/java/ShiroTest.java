@@ -21,7 +21,6 @@ public class ShiroTest {
         subject.login(token);
         System.out.println(subject.isAuthenticated());
         System.out.println(subject.hasRole("admin"));
-        System.out.println("helloworld");
         subject.checkPermission("mainpage");
     }
 }
